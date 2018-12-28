@@ -13,6 +13,7 @@ email: juha.ylitalo@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Observations from working in public cloud environments (mainly AWS).
 baseurl: "" # the subpath of your site, e.g. /blog
+permalink: /:year/:title:output_ext
 url: "https://blog.ylitalot.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jylitalo
 github_username:  jylitalo
