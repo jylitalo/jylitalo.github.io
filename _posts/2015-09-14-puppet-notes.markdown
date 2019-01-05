@@ -4,6 +4,8 @@ title: "Notes about Puppet"
 status: publish
 date: 2015-09-14 12:00
 ---
+Random notes about puppet configuration management tool and related topics.
+
 *Puppet doesn't like symlinks*
 
 When you start building _/etc/puppet/environments/production_ in your puppet master, don't use symlinks on directory tree. I once made the mistake of using symlinks for manifests and modules directories and was getting frustrated, when puppet agent didn't seem to get my _manifests/site.pp_ file.

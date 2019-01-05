@@ -18,6 +18,9 @@ url: "https://blog.ylitalot.com" # the base hostname & protocol for your site, e
 twitter_username: jylitalo
 github_username:  jylitalo
 
+# minima settings
+show_excerpts: true
+
 # Build settings
 markdown: kramdown
 theme: minima

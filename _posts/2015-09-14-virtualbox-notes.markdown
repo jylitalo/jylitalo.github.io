@@ -4,6 +4,8 @@ title: VirtualBox notes
 status: publish
 date: 2015-09-14 12:00
 ---
+Random notes about VirtualBox and related topics.
+
 Problem:
 
 Virtual machines clock keeps on drifting so much that time difference between your VM and Amazon EC2 will go out of thresholds. Once you are beyond threshold limits, EC2 will refuse all commands that require authentication.

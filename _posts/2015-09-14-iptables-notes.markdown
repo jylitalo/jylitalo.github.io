@@ -4,6 +4,8 @@ title: "Notes about IPTables"
 status: publish
 date: 2015-09-14 12:00
 ---
+Random notes about iptables, ufw and such tools in Linux.
+
 <h3>Mandatory lines for NAT instance</h3>
 
 Your /etc/sysconfig/iptables should have following lines:
