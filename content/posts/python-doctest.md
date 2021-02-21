@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Doctest in Python"
-status: publish
-date: 2015-09-14 12:00
+date: 2015-09-14T12:00:00+02:00
 ---
 My Assets on Octopress script needed couple modifications and I felt that it was good platform for doing unit tests. Python has nice test framework called [doctest](http://docs.python.org/3/library/doctest.html), which allows you to insert unit test cases as comments in your python code. My current tests are done for methods that don't recover mockups (for things like file system access) and simply return strings, lists and such to caller.
 

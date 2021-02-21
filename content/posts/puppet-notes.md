@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Notes about Puppet"
-status: publish
-date: 2015-09-14 12:00
+date: 2015-09-14T12:00:00+02:00
 ---
 Random notes about puppet configuration management tool and related topics.
 

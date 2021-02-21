@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Github Pages"
-status: publish
-date: 2019-01-05 12:00
+date: 2019-01-05T12:00:00+02:00
 ---
 I have maintained Jekyll based static blogs in AWS S3, Google's Cloud Storage and I felt that it might be interesting experiment in Christmas holidays to see what would be best way to do it with GitHub Pages. This seemed as an interesting idea, since GitHub Pages allows you to maintan your blog without locally installed Jekyll.
 

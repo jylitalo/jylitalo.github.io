@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Notes about Ansible"
-status: publish
-date: 2017-12-06 12:00
+date: 2017-12-06T12:00:00+02:00
 ---
 My favorite Ansible tools and personal contributions towards Ansible.
 

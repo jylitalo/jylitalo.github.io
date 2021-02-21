@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Notes about SSH"
-status: publish
-date: 2017-12-05 12:00
+date: 2017-12-05T12:00:00+02:00
 ---
 Random notes about ssh config and related topics.
 

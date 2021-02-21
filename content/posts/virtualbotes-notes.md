@@ -1,8 +1,6 @@
 ---
-layout: post
 title: VirtualBox notes
-status: publish
-date: 2015-09-14 12:00
+date: 2015-09-14T12:00:00+02:00
 ---
 Random notes about VirtualBox and related topics.
 

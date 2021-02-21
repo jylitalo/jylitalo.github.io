@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Chef without Chef server"
-status: publish
-date: 2015-09-14 12:00
+date: 2015-09-14T12:00:00+02:00
 ---
 There are couple alternatives available if you wish to use Chef in your infrastructure, but don't have budget to setup hosted Chef service. So far I've seen one based on Git and another based on AWS S3.
 

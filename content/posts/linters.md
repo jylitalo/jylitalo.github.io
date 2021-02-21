@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Linters"
-status: publish
-date: 2017-12-07 12:00
+date: 2017-12-07T12:00:00+02:00
 ---
 Linter is any tool that detects and flags errors in programming languages, including stylistic errors. - [Wikipedia](https://en.wikipedia.org/wiki/Lint_(software))
 
