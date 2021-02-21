@@ -2,3 +2,5 @@ baseURL = "http://blog.ylitalot.com/"
 languageCode = "en-us"
 title = "(Dev)Ops observations"
 theme = "ananke"
+[params]
+  twitter = "https://twitter.com/jylitalo"
