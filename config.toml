@@ -4,4 +4,5 @@ languageCode = "en-us"
 title = "(Dev)Ops observations"
 theme = "ananke"
 [params]
+  description = "Observations from working in public cloud environments"
   twitter = "https://twitter.com/jylitalo"
