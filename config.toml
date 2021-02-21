@@ -1,4 +1,5 @@
 baseURL = "http://blog.ylitalot.com/"
+copyright = "Juha Ylitalo &lt;juha@ylitalot.net&gt;"
 languageCode = "en-us"
 title = "(Dev)Ops observations"
 theme = "ananke"
