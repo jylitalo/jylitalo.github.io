@@ -1,8 +1,18 @@
 baseURL = "http://blog.ylitalot.com/"
-copyright = "Juha Ylitalo &lt;juha@ylitalot.net&gt;"
-languageCode = "en-us"
 title = "(Dev)Ops observations"
-theme = "ananke"
+copyright = "Juha Ylitalo &lt;juha@ylitalot.net&gt;"
+
+hasCJKLanguage = false
+languageCode = "en"
+
+theme = "hugo-theme-jane"
+paginate = 3
+PygmentsCodeFences = true
+PygmentsUseClasses = true
+PygmentsCodefencesGuessSyntax = true
+PygmentsOptions = "linenos=table"
+
 [params]
   description = "Observations from working in public cloud environments"
   twitter = "https://twitter.com/jylitalo"
+  mainSections = ["post"]
