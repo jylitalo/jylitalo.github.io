@@ -1,9 +1,10 @@
 ---
 title: "Linters"
-date: 2017-12-07T12:00:00+02:00
+date: 2021-02-21T12:00:00+02:00
+categories: ["index", "software"]
 ---
 Linter is any tool that detects and flags errors in programming languages, including stylistic errors. - [Wikipedia](https://en.wikipedia.org/wiki/Lint_(software))
-
+<!--more-->
 My favorite linters for various tasks:
 * Ansible: [ansible-lint](https://github.com/willthames/ansible-lint)
 * Golang: [golangci-lint](https://github.com/golangci/golangci-lint)

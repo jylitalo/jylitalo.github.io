@@ -1,8 +1,10 @@
 ---
 title: "Notes about Ansible"
 date: 2017-12-06T12:00:00+02:00
+categories: ["index", "python"]
 ---
 My favorite Ansible tools and personal contributions towards Ansible.
+<!--more-->
 
 ## Profiling Ansible
 

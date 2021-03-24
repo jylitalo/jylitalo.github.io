@@ -1,9 +1,10 @@
 ---
 title: "Notes about Chef"
 date: 2015-09-14T12:00:00+02:00
+categories: ["index", "chef", "ruby"]
 ---
 Random notes about chef configuration management tool and related topics.
-
+<!--more-->
 Problem with `knife bootstrap`:
 
 ```

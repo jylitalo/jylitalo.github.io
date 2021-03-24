@@ -1,9 +1,10 @@
 ---
 title: "Notes about SSH"
 date: 2017-12-05T12:00:00+02:00
+categories: ["index", "linux"]
 ---
 Random notes about ssh config and related topics.
-
+<!--more-->
 ## Making hostnames easier
 
 Openssh reads your _~/.ssh/config/_ before it checks what IP address it should use for connection. This allows you to do things like:

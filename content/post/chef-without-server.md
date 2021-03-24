@@ -1,9 +1,10 @@
 ---
 title: "Chef without Chef server"
 date: 2015-09-14T12:00:00+02:00
+categories: ["index", "chef", "ruby"]
 ---
 There are couple alternatives available if you wish to use Chef in your infrastructure, but don't have budget to setup hosted Chef service. So far I've seen one based on Git and another based on AWS S3.
-
+<!--more-->
 ## Git based solution
 
 In git based solution, create repository into bitbucket.com and create directory tree:
