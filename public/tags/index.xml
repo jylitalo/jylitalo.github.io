@@ -5,6 +5,7 @@
     <link>http://blog.ylitalot.com/tags/</link>
     <description>Recent content in Tags on (Dev)Ops observations</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://blog.ylitalot.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright><atom:link href="http://blog.ylitalot.com/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

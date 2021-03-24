@@ -5,6 +5,126 @@
     <link>http://blog.ylitalot.com/</link>
     <description>Recent content on (Dev)Ops observations</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://blog.ylitalot.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright>
+    <lastBuildDate>Sun, 21 Feb 2021 12:00:00 +0200</lastBuildDate>
+    
+        <atom:link href="http://blog.ylitalot.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linters</title>
+      <link>http://blog.ylitalot.com/post/linters/</link>
+      <pubDate>Sun, 21 Feb 2021 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/linters/</guid>
+      
+        <description>&lt;p&gt;Linter is any tool that detects and flags errors in programming languages, including stylistic errors. - &lt;a href=&#34;https://en.wikipedia.org/wiki/Lint_(software)&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Github Pages</title>
+      <link>http://blog.ylitalot.com/post/github-pages/</link>
+      <pubDate>Sat, 05 Jan 2019 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/github-pages/</guid>
+      
+        <description>Current solution is based on Hugo and its instructions for Hosting on Github with GitHub Actions.</description>
+      
+    </item>
+    
+    <item>
+      <title>Notes about Ansible</title>
+      <link>http://blog.ylitalot.com/post/ansible-notes/</link>
+      <pubDate>Wed, 06 Dec 2017 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/ansible-notes/</guid>
+      
+        <description>&lt;p&gt;My favorite Ansible tools and personal contributions towards Ansible.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Notes about SSH</title>
+      <link>http://blog.ylitalot.com/post/ssh-notes/</link>
+      <pubDate>Tue, 05 Dec 2017 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/ssh-notes/</guid>
+      
+        <description>&lt;p&gt;Random notes about ssh config and related topics.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Chef without Chef server</title>
+      <link>http://blog.ylitalot.com/post/chef-without-server/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/chef-without-server/</guid>
+      
+        <description>&lt;p&gt;There are couple alternatives available if you wish to use Chef in your infrastructure, but don&amp;rsquo;t have budget to setup hosted Chef service. So far I&amp;rsquo;ve seen one based on Git and another based on AWS S3.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Doctest in Python</title>
+      <link>http://blog.ylitalot.com/post/python-doctest/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/python-doctest/</guid>
+      
+        <description>My Assets on Octopress script needed couple modifications and I felt that it was good platform for doing unit tests. Python has nice test framework called doctest, which allows you to insert unit test cases as comments in your python code. My current tests are done for methods that don&amp;rsquo;t recover mockups (for things like file system access) and simply return strings, lists and such to caller.
+In following example, I have method called _extract_from_markdown, which gets one line of text from markdown file as string.</description>
+      
+    </item>
+    
+    <item>
+      <title>Notes about Chef</title>
+      <link>http://blog.ylitalot.com/post/chef-notes/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/chef-notes/</guid>
+      
+        <description>&lt;p&gt;Random notes about chef configuration management tool and related topics.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Notes about IPTables</title>
+      <link>http://blog.ylitalot.com/post/iptables-notes/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/iptables-notes/</guid>
+      
+        <description>&lt;p&gt;Random notes about iptables, ufw and such tools in Linux.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Notes about Puppet</title>
+      <link>http://blog.ylitalot.com/post/puppet-notes/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/puppet-notes/</guid>
+      
+        <description>Random notes about puppet configuration management tool and related topics.
+Puppet doesn&amp;rsquo;t like symlinks When you start building /etc/puppet/environments/production in your puppet master, don&amp;rsquo;t use symlinks on directory tree. I once made the mistake of using symlinks for manifests and modules directories and was getting frustrated, when puppet agent didn&amp;rsquo;t seem to get my manifests/site.pp file.
+Once I copied all the directly into /etc/puppet/environments/production tree, things started to work.
+Use info(), notice() or debug() in site.</description>
+      
+    </item>
+    
+    <item>
+      <title>VirtualBox notes</title>
+      <link>http://blog.ylitalot.com/post/virtualboxes-notes/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/post/virtualboxes-notes/</guid>
+      
+        <description>&lt;p&gt;Random notes about VirtualBox and related topics.&lt;/p&gt;</description>
+      
+    </item>
+    
   </channel>
 </rss>

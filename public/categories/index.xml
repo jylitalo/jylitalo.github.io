@@ -5,6 +5,98 @@
     <link>http://blog.ylitalot.com/categories/</link>
     <description>Recent content in Categories on (Dev)Ops observations</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://blog.ylitalot.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright>
+    <lastBuildDate>Sun, 21 Feb 2021 12:00:00 +0200</lastBuildDate><atom:link href="http://blog.ylitalot.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>index</title>
+      <link>http://blog.ylitalot.com/categories/index/</link>
+      <pubDate>Sun, 21 Feb 2021 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/index/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software</title>
+      <link>http://blog.ylitalot.com/categories/software/</link>
+      <pubDate>Sun, 21 Feb 2021 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>http://blog.ylitalot.com/categories/github/</link>
+      <pubDate>Sat, 05 Jan 2019 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>http://blog.ylitalot.com/categories/hugo/</link>
+      <pubDate>Sat, 05 Jan 2019 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://blog.ylitalot.com/categories/python/</link>
+      <pubDate>Wed, 06 Dec 2017 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://blog.ylitalot.com/categories/linux/</link>
+      <pubDate>Tue, 05 Dec 2017 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chef</title>
+      <link>http://blog.ylitalot.com/categories/chef/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/chef/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby</title>
+      <link>http://blog.ylitalot.com/categories/ruby/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>http://blog.ylitalot.com/categories/testing/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vm</title>
+      <link>http://blog.ylitalot.com/categories/vm/</link>
+      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+      
+      <guid>http://blog.ylitalot.com/categories/vm/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
