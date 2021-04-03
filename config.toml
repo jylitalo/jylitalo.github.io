@@ -16,3 +16,8 @@ PygmentsOptions = "linenos=table"
   description = "Observations from working in public cloud environments"
   twitter = "https://twitter.com/jylitalo"
   mainSections = ["post"]
+
+[params.social]
+  a-email = "mailto:juha.ylitalo@gmail.com"
+  c-twitter = "https://twitter.com/jylitalo"
+  g-github = "https://github.com/jylitalo"
