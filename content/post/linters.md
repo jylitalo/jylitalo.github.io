@@ -7,7 +7,9 @@ Linter is any tool that detects and flags errors in programming languages, inclu
 <!--more-->
 My favorite linters for various tasks:
 * Ansible: [ansible-lint](https://github.com/willthames/ansible-lint)
-* Golang: [golangci-lint](https://github.com/golangci/golangci-lint)
+* Golang:
+  * [golangci-lint](https://github.com/golangci/golangci-lint) - catches dead code among other things
+  * [gosec](https://github.com/securego/gosec) - really checks return values from functions
 * JavaScript: [prettier-standard](https://www.npmjs.com/package/prettier-standard)
 * Puppet: [puppet-lint](http://puppet-lint.com/)
 * Python: [pylint](https://www.pylint.org/)
@@ -16,4 +18,5 @@ My favorite linters for various tasks:
 
 ## Changelog
 
-2021-Feb-21: Added golangci-lint
+* 2022-Dec-11: Added gosec
+* 2021-Feb-21: Added golangci-lint
