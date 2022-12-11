@@ -5,19 +5,27 @@ copyright = "Juha Ylitalo &lt;juha@ylitalot.net&gt;"
 hasCJKLanguage = false
 languageCode = "en"
 
-theme = "hugo-theme-jane"
+theme = "hugo-theme-anubis"
 paginate = 3
 PygmentsCodeFences = true
 PygmentsUseClasses = true
 PygmentsCodefencesGuessSyntax = true
 PygmentsOptions = "linenos=table"
 
+[menus]
+  main = [
+    {Name="Index", URL="/", Weight=1},
+    {Name="About", URL="/about", Weight=100}
+  ]
 [params]
+  author = "Juha Ylitalo"
+  email = "juha@ylitalot.net"
+  avatar = "/images/avatar.jpg"
   description = "Observations from working in public cloud environments"
-  twitter = "https://twitter.com/jylitalo"
   mainSections = ["post"]
-
-[params.social]
-  a-email = "mailto:juha.ylitalo@gmail.com"
-  c-twitter = "https://twitter.com/jylitalo"
-  g-github = "https://github.com/jylitalo"
+  social = [
+    {id = "email", url = "mailto:juha.ylitalo@gmail.com"},
+    {id = "twitter", url = "https://twitter.com/jylitalo"},
+    {id = "github", url = "https://github.com/jylitalo"},
+  ]
+  style = "auto"

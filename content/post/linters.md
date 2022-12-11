@@ -14,6 +14,6 @@ My favorite linters for various tasks:
 * Ruby: [rubocop](https://rubocop.readthedocs.io/en/latest/)
 * Terraform: `terraform fmt`
 
-# Changelog
+## Changelog
 
 2021-Feb-21: Added golangci-lint
