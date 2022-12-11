@@ -5,8 +5,8 @@ copyright = "Juha Ylitalo &lt;juha@ylitalot.net&gt;"
 hasCJKLanguage = false
 languageCode = "en"
 
-theme = "hugo-theme-anubis"
-paginate = 3
+theme = "hugo-coder"
+paginate = 10
 PygmentsCodeFences = true
 PygmentsUseClasses = true
 PygmentsCodefencesGuessSyntax = true
@@ -14,18 +14,42 @@ PygmentsOptions = "linenos=table"
 
 [menus]
   main = [
-    {Name="Index", URL="/", Weight=1},
+    {Name="Blog", URL="/posts", Weight=1},
     {Name="About", URL="/about", Weight=100}
   ]
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/jylitalo/"
+[[params.social]]
+  name = "Email"
+  icon = "fa fa-envelope fa-2x"
+  weight = 2
+  url = "mailto:juha@ylitalot.net"
+[[params.social]]
+  name = "LinkedIn"
+  icon = "fa fa-linkedin fa-2x"
+  weight = 3
+  url = "https://linkedin.com/in/jylitalo/"
+[[params.social]]
+  name = "RSS"
+  icon = "fa fa-2x fa-rss"
+  weight = 4
+  url = "/index.xml"
+  rel = "alternate"
+  type = "application/rss+xml"
 [params]
   author = "Juha Ylitalo"
+  info = "working on cloud infrastructure"
+  description = "Observations from working in cloud environments"
+  keywords = "blog,developer,personal"
+  avatarURL = "/images/avatar.jpg"
+  gravatar = "juha.ylitalo@gmail.com"
+  since = "2015"
   email = "juha@ylitalot.net"
-  avatar = "/images/avatar.jpg"
-  description = "Observations from working in public cloud environments"
-  mainSections = ["post"]
-  social = [
-    {id = "email", url = "mailto:juha.ylitalo@gmail.com"},
-    {id = "twitter", url = "https://twitter.com/jylitalo"},
-    {id = "github", url = "https://github.com/jylitalo"},
-  ]
-  style = "auto"
+  mainSections = ["posts"]
+  colorScheme = "auto"
+
+[languages.en]
+languageName = ":uk:"
