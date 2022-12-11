@@ -1,1 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vm on (Dev)Ops observations</title><link>http://blog.ylitalot.com/categories/vm/</link><description>Recent content in vm on (Dev)Ops observations</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright><lastBuildDate>Mon, 14 Sep 2015 12:00:00 +0200</lastBuildDate><atom:link href="http://blog.ylitalot.com/categories/vm/index.xml" rel="self" type="application/rss+xml"/><item><title>VirtualBox notes</title><link>http://blog.ylitalot.com/post/virtualboxes-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/virtualboxes-notes/</guid><description>&lt;p>Random notes about VirtualBox and related topics.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vm on (Dev)Ops observations</title><link>http://blog.ylitalot.com/categories/vm/</link><description>(Dev)Ops observations (vm)</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright><lastBuildDate>Mon, 14 Sep 2015 12:00:00 +0200</lastBuildDate><atom:link href="http://blog.ylitalot.com/categories/vm/index.xml" rel="self" type="application/rss+xml"/><item><title>VirtualBox notes</title><link>http://blog.ylitalot.com/post/virtualboxes-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/virtualboxes-notes/</guid><description>&lt;p>Random notes about VirtualBox and related topics.&lt;/p>
+&lt;p>Problem:
+Virtual machines clock keeps on drifting so much that time difference between your VM and Amazon EC2 will go out of thresholds. Once you are beyond threshold limits, EC2 will refuse all commands that require authentication.&lt;/p>
+&lt;p>You can check this in host OS with:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># VBoxManage list vms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># for VM in ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># do
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># VBoxManage guestproperty get VM --timesync-set-threshold
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># done
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;b&amp;gt;No value set!&amp;lt;/b&amp;gt;&amp;lt;/tt&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solution:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># VBoxManage guestproperty set VM --timesync-set-threshold 60000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If you now recheck the value, it should respond with &lt;code>Value: 60000&lt;/code>&lt;/p></description></item></channel></rss>

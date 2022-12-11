@@ -1,5 +1,746 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on (Dev)Ops observations</title><link>http://blog.ylitalot.com/post/</link><description>Recent content in Posts on (Dev)Ops observations</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright><lastBuildDate>Sun, 21 Feb 2021 12:00:00 +0200</lastBuildDate><atom:link href="http://blog.ylitalot.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Linters</title><link>http://blog.ylitalot.com/post/linters/</link><pubDate>Sun, 21 Feb 2021 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/linters/</guid><description>&lt;p>Linter is any tool that detects and flags errors in programming languages, including stylistic errors. - &lt;a href="https://en.wikipedia.org/wiki/Lint_(software)">Wikipedia&lt;/a>&lt;/p></description></item><item><title>Github Pages</title><link>http://blog.ylitalot.com/post/github-pages/</link><pubDate>Sat, 05 Jan 2019 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/github-pages/</guid><description>Current solution is based on Hugo and its instructions for Hosting on Github with GitHub Actions.</description></item><item><title>Notes about Ansible</title><link>http://blog.ylitalot.com/post/ansible-notes/</link><pubDate>Wed, 06 Dec 2017 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/ansible-notes/</guid><description>&lt;p>My favorite Ansible tools and personal contributions towards Ansible.&lt;/p></description></item><item><title>Notes about SSH</title><link>http://blog.ylitalot.com/post/ssh-notes/</link><pubDate>Tue, 05 Dec 2017 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/ssh-notes/</guid><description>&lt;p>Random notes about ssh config and related topics.&lt;/p></description></item><item><title>Chef without Chef server</title><link>http://blog.ylitalot.com/post/chef-without-server/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/chef-without-server/</guid><description>&lt;p>There are couple alternatives available if you wish to use Chef in your infrastructure, but don&amp;rsquo;t have budget to setup hosted Chef service. So far I&amp;rsquo;ve seen one based on Git and another based on AWS S3.&lt;/p></description></item><item><title>Doctest in Python</title><link>http://blog.ylitalot.com/post/python-doctest/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/python-doctest/</guid><description>My Assets on Octopress script needed couple modifications and I felt that it was good platform for doing unit tests. Python has nice test framework called doctest, which allows you to insert unit test cases as comments in your python code. My current tests are done for methods that don&amp;rsquo;t recover mockups (for things like file system access) and simply return strings, lists and such to caller.
-In following example, I have method called _extract_from_markdown, which gets one line of text from markdown file as string.</description></item><item><title>Notes about Chef</title><link>http://blog.ylitalot.com/post/chef-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/chef-notes/</guid><description>&lt;p>Random notes about chef configuration management tool and related topics.&lt;/p></description></item><item><title>Notes about IPTables</title><link>http://blog.ylitalot.com/post/iptables-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/iptables-notes/</guid><description>&lt;p>Random notes about iptables, ufw and such tools in Linux.&lt;/p></description></item><item><title>Notes about Puppet</title><link>http://blog.ylitalot.com/post/puppet-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/puppet-notes/</guid><description>Random notes about puppet configuration management tool and related topics.
-Puppet doesn&amp;rsquo;t like symlinks When you start building /etc/puppet/environments/production in your puppet master, don&amp;rsquo;t use symlinks on directory tree. I once made the mistake of using symlinks for manifests and modules directories and was getting frustrated, when puppet agent didn&amp;rsquo;t seem to get my manifests/site.pp file.
-Once I copied all the directly into /etc/puppet/environments/production tree, things started to work.
-Use info(), notice() or debug() in site.</description></item><item><title>VirtualBox notes</title><link>http://blog.ylitalot.com/post/virtualboxes-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/virtualboxes-notes/</guid><description>&lt;p>Random notes about VirtualBox and related topics.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on (Dev)Ops observations</title><link>http://blog.ylitalot.com/post/</link><description>(Dev)Ops observations (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright><lastBuildDate>Sun, 21 Feb 2021 12:00:00 +0200</lastBuildDate><atom:link href="http://blog.ylitalot.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Linters</title><link>http://blog.ylitalot.com/post/linters/</link><pubDate>Sun, 21 Feb 2021 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/linters/</guid><description>&lt;p>Linter is any tool that detects and flags errors in programming languages, including stylistic errors. - &lt;a href="https://en.wikipedia.org/wiki/Lint_(software)">Wikipedia&lt;/a>&lt;/p>
+&lt;p>My favorite linters for various tasks:&lt;/p>
+&lt;ul>
+&lt;li>Ansible: &lt;a href="https://github.com/willthames/ansible-lint">ansible-lint&lt;/a>&lt;/li>
+&lt;li>Golang:
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/golangci/golangci-lint">golangci-lint&lt;/a> - catches dead code among other things&lt;/li>
+&lt;li>&lt;a href="https://github.com/securego/gosec">gosec&lt;/a> - really checks return values from functions&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>JavaScript: &lt;a href="https://www.npmjs.com/package/prettier-standard">prettier-standard&lt;/a>&lt;/li>
+&lt;li>Puppet: &lt;a href="http://puppet-lint.com/">puppet-lint&lt;/a>&lt;/li>
+&lt;li>Python: &lt;a href="https://www.pylint.org/">pylint&lt;/a>&lt;/li>
+&lt;li>Ruby: &lt;a href="https://rubocop.readthedocs.io/en/latest/">rubocop&lt;/a>&lt;/li>
+&lt;li>Terraform: &lt;code>terraform fmt&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="changelog" >Changelog
+&lt;span>
+&lt;a href="#changelog">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>2022-Dec-11: Added gosec&lt;/li>
+&lt;li>2021-Feb-21: Added golangci-lint&lt;/li>
+&lt;/ul></description></item><item><title>Github Pages</title><link>http://blog.ylitalot.com/post/github-pages/</link><pubDate>Sat, 05 Jan 2019 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/github-pages/</guid><description>&lt;p>Current solution is based on &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hugo&lt;/a> and its instructions for &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hosting on Github&lt;/a> with GitHub Actions.&lt;/p></description></item><item><title>Notes about Ansible</title><link>http://blog.ylitalot.com/post/ansible-notes/</link><pubDate>Wed, 06 Dec 2017 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/ansible-notes/</guid><description>&lt;p>My favorite Ansible tools and personal contributions towards Ansible.&lt;/p>
+&lt;h2 id="profiling-ansible" >Profiling Ansible
+&lt;span>
+&lt;a href="#profiling-ansible">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Create &lt;em>ansible.cfg&lt;/em> file into same directory with playbook with following content:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[default]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">callback_whitelist = profile_tasks
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Source: &lt;a href="https://github.com/jlafon/ansible-profile">ansible-profile&lt;/a>&lt;/p>
+&lt;h2 id="related-tools" >Related tools
+&lt;span>
+&lt;a href="#related-tools">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a href="https://github.com/willthames/ansible-lint">ansible-lint&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="related-tools-1" >Related tools
+&lt;span>
+&lt;a href="#related-tools-1">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h2 id="personal-opinions-contributions-etc" >Personal opinions, contributions, etc.
+&lt;span>
+&lt;a href="#personal-opinions-contributions-etc">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>My personal background with configuration management tools starts from Cfengine in &amp;rsquo;90s that we used to customize Linux installations. Followed by Puppet to setup multi-node installations in &amp;rsquo;00s. In &amp;lsquo;16, I came across with Chef, but my current choice for configuration tasks is Ansible, even if it is not the fastest tool on a market.&lt;/p>
+&lt;h3 id="contributions-to-other-ansible-projects" >Contributions to other Ansible projects
+&lt;span>
+&lt;a href="#contributions-to-other-ansible-projects">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a href="https://github.com/sensu/sensu-ansible/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+jylitalo">ansible-sensu&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="personal-ansible-roles-projects" >Personal Ansible Roles projects
+&lt;span>
+&lt;a href="#personal-ansible-roles-projects">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a href="https://github.com/jylitalo/EmailRelay">EmailRelay&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jylitalo/GceInstance">GceInstance&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jylitalo/JekyllSetup">JekyllSetup&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jylitalo/SyncToGoogleStorage">SyncToGoogleStorage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jylitalo/TwitterBot">TwitterBot&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="personal-ansible-playbook-projects" >Personal Ansible Playbook projects
+&lt;span>
+&lt;a href="#personal-ansible-playbook-projects">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a href="https://github.com/jylitalo/configs">configure Macbook&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jylitalo/blog.ylitalot.com-site">blog.ylitalot.com site&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jylitalo/ylitalot.com-site">ylitalot.com site&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jylitalo/ylitalot.net-site">ylitalot.net site&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="pull-requests-to-other-ansible-projects" >Pull requests to other Ansible projects
+&lt;span>
+&lt;a href="#pull-requests-to-other-ansible-projects">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a href="https://github.com/toshihirock/node-elb-log-parser/pull/2">node-elb-log-parser&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Notes about SSH</title><link>http://blog.ylitalot.com/post/ssh-notes/</link><pubDate>Tue, 05 Dec 2017 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/ssh-notes/</guid><description>&lt;p>Random notes about ssh config and related topics.&lt;/p>
+&lt;h2 id="making-hostnames-easier" >Making hostnames easier
+&lt;span>
+&lt;a href="#making-hostnames-easier">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Openssh reads your &lt;em>~/.ssh/config/&lt;/em> before it checks what IP address it should use for connection. This allows you to do things like:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Host bastion.company
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Hostname 10.10.10.5
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> IdentityFile ~/.ssh/company.pem
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ForwardAgent yes
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> User ec2-user
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>or if you wish to by pass bastion:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Host _final_destination_
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> User _at_bastion_
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ProxyCommand ssh _bastion_host_ netcat %h %p
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>So even if the hostname is not in a DNS or it has some strange name like ec2-10-10-10-5.eu-west-1.compute.amazonaws.com, you can use alternative hostnames with ssh (even if you don&amp;rsquo;t have rights to change &lt;em>/etc/hosts&lt;/em> file in your computer).&lt;/p>
+&lt;h2 id="extracting-public-key-from-pem-file" >Extracting public key from pem file
+&lt;span>
+&lt;a href="#extracting-public-key-from-pem-file">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>If you have to give some user ssh access to your servers and they send you PRIVATE KEY PEM file instead of the string that you can attach into their ~/.ssh/authorized_keys_file, you can get it with &lt;code>ssh-keygen -y -f file.pem&lt;/code>.&lt;/p>
+&lt;p>If you have to give some user ssh access to your servers and they send you PUBLIC KEY PEM file instead of the string that you can attach into their ~/.ssh/authorized_keys file, you can get it with &lt;code>ssh-keygen -i -f file.pem&lt;/code>.&lt;/p>
+&lt;h2 id="importing-keypair-into-aws" >Importing keypair into AWS
+&lt;span>
+&lt;a href="#importing-keypair-into-aws">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">$ aws ec2 import-key-pair --key-name juha.ylitalo@gmail.com \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;gt; --public-key-material file://.ssh/id_rsa.pub
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;KeyName&amp;#34;: &amp;#34;juha.ylitalo@gmail.com&amp;#34;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;KeyFingerprint&amp;#34;: &amp;#34;...&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Example works on RSA key, but if you try same thing with DSA keys, you will get error message claiming that &amp;ldquo;Key is not in valid OpenSSH public key format&amp;rdquo;.&lt;/p></description></item><item><title>Chef without Chef server</title><link>http://blog.ylitalot.com/post/chef-without-server/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/chef-without-server/</guid><description>&lt;p>There are couple alternatives available if you wish to use Chef in your infrastructure, but don&amp;rsquo;t have budget to setup hosted Chef service. So far I&amp;rsquo;ve seen one based on Git and another based on AWS S3.&lt;/p>
+&lt;h2 id="git-based-solution" >Git based solution
+&lt;span>
+&lt;a href="#git-based-solution">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>In git based solution, create repository into bitbucket.com and create directory tree:&lt;/p>
+&lt;ul>
+&lt;li>/chef/cookbooks/my_cookbook/definitions/default.rb&lt;/li>
+&lt;li>/chef/cookbooks/my_cookbook/files&lt;/li>
+&lt;li>/chef/cookbooks/my_cookbook/recipes/default.rb&lt;/li>
+&lt;/ul>
+&lt;p>In your &lt;em>/chef/cookbooks/my_cookbook/recipes/default.rb&lt;/em>, put following text among other stuff:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">directory &amp;#39;/root/bin&amp;#39; do
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> owner &amp;#39;root&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> group &amp;#39;root&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> mode &amp;#39;0700&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> action :create
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cookbook_file &amp;#39;/root/bin/run_chef&amp;#39; do
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> source &amp;#39;run_chef&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> owner &amp;#39;root&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> group &amp;#39;root&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> mode &amp;#39;0700&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> action :create
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cron &amp;#39;run chef hourly&amp;#39; do
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> minute &amp;#39;13&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> user &amp;#39;root&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> home &amp;#39;/root&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> command &amp;#39;/root/bin/run_chef&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> action :create
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Create &lt;em>/chef/cookbooks/my_cookbook/files/run_chef&lt;/em>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="nb">cd&lt;/span> /root/my_repository/chef
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git pull
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> ! -f /etc/chef/client.rb &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> mkdir -p /etc/chef
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> cat &amp;gt; /etc/chef/client.rb &lt;span class="p">&amp;amp;&lt;/span>lt&lt;span class="p">;&amp;amp;&lt;/span>lt&lt;span class="p">;&lt;/span>EOF
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">log_level :info
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">log_location STDOUT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">EOF
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chef-client -z -c /etc/chef/client.rb -o my_cookbook
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Now you are ready to commit and push your git repository into bitbucket.&lt;/p>
+&lt;p>In client hosts, create ssh keys (without passphrase). Add your public ssh key as deployment key into your new repository. &lt;code>git clone&lt;/code> your repository under /root. &lt;code>cd my_repository&lt;/code> and &lt;code>chef-client -z -o my_cookbook&lt;/code>&lt;/p>
+&lt;h2 id="s3-based-solution" >S3 based solution
+&lt;span>
+&lt;a href="#s3-based-solution">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Our S3 based solution starts in same fashion with Git based solution. First we create git repository, create directory tree into it and configure cron to run /root/bin/run_chef on hourly basis. Things split into new course in &lt;em>/chef/cookbooks/my_cookbook/files/run_chef&lt;/em>. With S3, file content should be:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /root/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rm -rf cookbooks
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">aws s3 --no-sign-request cp s3://my_s3_bucket/my_cookbooks.tar.gz .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar xzvf cookbooks.tar.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> ! -f /etc/chef/client.rb &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> mkdir -p /etc/chef
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> cat &amp;gt; /etc/chef/client.rb &lt;span class="p">&amp;amp;&lt;/span>lt&lt;span class="p">;&amp;amp;&lt;/span>lt&lt;span class="p">;&lt;/span>EOF
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">log_level :info
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">log_location STDOUT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">EOF
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chef-client -z -c /etc/chef/client.rb -o my_cookbook
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;em>NOTE:&lt;/em> awscli 1.2.9 doesn&amp;rsquo;t support &lt;code>--no-sign-request&lt;/code> command line option, so you need something more recent than that. If you install it with &lt;code>pip install awscli&lt;/code> in Ubuntu, it will get installed under &lt;em>/usr/local/bin&lt;/em>.&lt;/p>
+&lt;p>In your &lt;em>/chef/cookbooks/my_cookbook&lt;/em> directory, issue &lt;code>berks install&lt;/code> and &lt;code>berks package&lt;/code>. This should create &lt;em>cookbooks-*.tar.gz&lt;/em>. Rename it into &lt;em>cookbook.tar.gz&lt;/em>.&lt;/p>
+&lt;p>You also need S3 bucket my_s3_bucket with following kind of S3 bucket policy.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">{
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Version&amp;#34;: &amp;#34;2012-10-17&amp;#34;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Statement&amp;#34;: [
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Sid&amp;#34;: &amp;#34;AddCannedAcl&amp;#34;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Effect&amp;#34;: &amp;#34;Allow&amp;#34;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Principal&amp;#34;: {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;AWS&amp;#34;: &amp;#34;arn:aws:iam::MY_AWS_ACCOUNT_NUMBER:root&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> },
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Action&amp;#34;: [
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;s3:GetObjectAcl&amp;#34;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;s3:GetObject&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ],
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Resource&amp;#34;: &amp;#34;arn:aws:s3:::my_s3_bucket/*&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Now you are ready to upload your &lt;em>cookbook.tar.gz&lt;/em> into my_s3_bucket. Remember to set &lt;em>cookbook.tar.gz&lt;/em> public, so that our EC2 instances can access it. Now you just have to copy &lt;em>/chef/cookbooks/my_cookbook/files/run_chef&lt;/em> to your instance (for example as part of userdata) and execute it once.&lt;/p>
+&lt;h2 id="comparison" >Comparison
+&lt;span>
+&lt;a href="#comparison">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>In Git based solution, prerequirements are git and chef-client. You have complete audit trail, because all content is pushed through the git repository, but you have to maintain deployment keys (or put one valid deployment keypair into chef configuration, if you want to do autoscaling).&lt;/p>
+&lt;p>In S3 based solution, prerequirements are awscli (that supposed &amp;ndash;no-sign-request) and chef-client. You don&amp;rsquo;t have to worry about deployment keys and you can use Berksfile to maintain all your 3rd party cookbooks, but you have to create new cookbook.tar.gz whenever you make changes to your chef configuration and there is no direct linking between your cookbook.tar.gz files and content in git repository.&lt;/p>
+&lt;p>Both scenarios work very well, if the goal is to ensure that all your nodes have necessary user accounts, properly configured sudoers and monitoring tools like nagios plugins or zabbix-agent.&lt;/p></description></item><item><title>Doctest in Python</title><link>http://blog.ylitalot.com/post/python-doctest/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/python-doctest/</guid><description>&lt;p>My Assets on Octopress script needed couple modifications and I felt that it was good platform for doing unit tests. Python has nice test framework called &lt;a href="http://docs.python.org/3/library/doctest.html">doctest&lt;/a>, which allows you to insert unit test cases as comments in your python code. My current tests are done for methods that don&amp;rsquo;t recover mockups (for things like file system access) and simply return strings, lists and such to caller.&lt;/p>
+&lt;p>In following example, I have method called &lt;code>_extract_from_markdown&lt;/code>, which gets one line of text from markdown file as string. It will try to find all possible references to files under /assets/ or /images/ and return those as list of strings. Comment lines that starts with &amp;lsquo;&amp;raquo;&amp;gt;&amp;rsquo; are method calls and lines below them (starting with [) are expected return values from method.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">def _extract_from_markdown(line):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; AssetsFinder._extract_from_markdown(&amp;#34;foobar&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> []
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; AssetsFinder._extract_from_markdown(&amp;#39;[foobar](/images/link.jpg)&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> [&amp;#39;/images/link.jpg&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; AssetsFinder._extract_from_markdown(&amp;#39;[foobar](/images/link.jpg &amp;#34;foobar&amp;#34;)&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> [&amp;#39;/images/link.jpg&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; AssetsFinder._extract_from_markdown(&amp;#39;{\% img /images/something.jpg &amp;#34;foobar&amp;#34;}&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> [&amp;#39;/images/something.jpg&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; AssetsFinder._extract_from_markdown(&amp;#39;[![#48/2012: Rautatientori](/images/2012/11/IMG_0156_t.jpg &amp;#34;#48/2012: Rautatientori&amp;#34;)](/images/2012/11/IMG_0156_l.jpg &amp;#34;#48/2012: Rautatientori&amp;#34;)&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> [&amp;#39;/images/2012/11/IMG_0156_t.jpg&amp;#39;, &amp;#39;/images/2012/11/IMG_0156_l.jpg&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> links = []
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for key in [&amp;#34;images&amp;#34;,&amp;#34;assets&amp;#34;]:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for field in line.split(&amp;#34;(/&amp;#34; + key)[1:]:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> field = &amp;#34;/%s%s&amp;#34; % (key,field[:field.find(&amp;#39;)&amp;#39;)])
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if &amp;#39; &amp;#34;&amp;#39; in field: field = field[:field.find(&amp;#39; &amp;#34;&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> links.append(field)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for c in [&amp;#39; &amp;#39;,&amp;#39;&amp;#34;&amp;#39;,&amp;#34;&amp;#39;&amp;#34;]:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> for field in line.split(&amp;#34;%s/%s&amp;#34; % (c,key))[1:]:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> field = &amp;#34;/&amp;#34; + key + field[:field.find(c,1)]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> links.append(field)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return links
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>As slight more advanced tests, find_source_dir method will throw AssertionException, if it is unable to guess root directory in your Octoress directory tree. First two tests are successful cases, while the third one (about /bound/to/fail directory) will throw exception.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">def find_source_dir(dir=os.getcwd()):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; Octopress.find_source_dir(&amp;#34;/tmp/octo/source/_posts&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;/tmp/octo/source&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; Octopress.find_source_dir(&amp;#34;/tmp/octo/source&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;/tmp/octo/source&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;&amp;gt;&amp;gt; Octopress.find_source_dir(&amp;#34;/bound/to/fail&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Traceback (most recent call last):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> AssertionError: unable to determine source directory from /bound/to/fail
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if dir.endswith(&amp;#34;/source&amp;#34;): return dir
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if dir.endswith(&amp;#34;/source/_posts&amp;#34;): return dir[:dir.rfind(&amp;#39;/&amp;#39;)]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if os.access(dir + &amp;#34;/config.rg&amp;#34;, os.R_OK) and os.access(dir + &amp;#34;/source&amp;#34;,os.F_OK):
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return dir + &amp;#34;/source&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> raise AssertionError(&amp;#34;unable to determine source directory from &amp;#34; + dir)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Now that we have written tests into our python script, we should execute them and check results. Short and sweet version is to run &lt;code>python -m doctest assets_on_octopress.py&lt;/code>, but it will only report failed tests cases. To get little more complete report out of it, we have to call &lt;code>python -m doctest -v assets_on_octopress.py&lt;/code>.&lt;/p>
+&lt;p>Verbose version will first go through all test cases in following manner:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Trying:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> AssetsFinder._extract_from_markdown(&amp;#34;foobar&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Expecting:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> []
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ok
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Trying:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> AssetsFinder._extract_from_markdown(&amp;#39;[foobar](/images/link.jpg)&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Expecting:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> [&amp;#39;/images/link.jpg&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ok
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Trying:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> AssetsFinder._extract_from_markdown(&amp;#39;[foobar](/images/link.jpg &amp;#34;foobar&amp;#34;)&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Expecting:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> [&amp;#39;/images/link.jpg&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ok
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>And based on that, it will create nice summary about what was tested and what areas still need more work.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">20 items had no tests:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder.__init__
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder._find_markdown_files
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder._scan_tree
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder._validate_found
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder._validate_missing
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder._validate_waste
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder.dir
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder.scan
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFinder.validate
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFixer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFixer.__init__
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFixer._original_image
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFixer._resize_image
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFixer._validate_found
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFixer._validate_missing
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.AssetsFixer._validate_waste
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.Octopress
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> assets_on_octopress.Octopress.head
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">4 items passed all tests:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 5 tests in assets_on_octopress.AssetsFinder._extract_from_markdown
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 5 tests in assets_on_octopress.AssetsFinder._ignore
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 6 tests in assets_on_octopress.AssetsFinder.get_url
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 3 tests in assets_on_octopress.Octopress.find_source_dir
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">19 tests in 24 items.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">19 passed and 0 failed.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Test passed.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Notes about Chef</title><link>http://blog.ylitalot.com/post/chef-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/chef-notes/</guid><description>&lt;p>Random notes about chef configuration management tool and related topics.&lt;/p>
+&lt;p>Problem with &lt;code>knife bootstrap&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]# knife bootstrap --run-list &amp;#34;role[phpapp]&amp;#34; --json-attributes &amp;#34;{\&amp;#34;phpapp\&amp;#34;: {\&amp;#34;server_name\&amp;#34;: \&amp;#34;localhost.localdomain\&amp;#34;}}&amp;#34; --ssh-user root --ssh-password PASSWORD HOSTNAME&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Node&amp;amp;nbsp;&amp;amp;nbsp;exists, overwrite it? (Y/N) y&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;span style=&amp;#34;color: red&amp;#34;&amp;gt;ERROR:&amp;lt;/span&amp;gt; Method Not Allowed&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Response: &amp;amp;lt;html&amp;amp;gt;&amp;amp;lt;head&amp;gt;&amp;amp;lt;title&amp;amp;gt;405 Method Not Allowed&amp;amp;lt;/title&amp;amp;gt;&amp;amp;lt;/head&amp;amp;gt;&amp;amp;lt;body&amp;amp;gt;&amp;amp;lt;h1&amp;amp;gt;Method Not Allowed&amp;amp;lt;/h1&amp;amp;gt;Method Not Allowed&amp;amp;lt;p&amp;amp;gt;&amp;amp;lt;hr&amp;amp;gt;&amp;amp;lt;address&amp;amp;gt;mochiweb+webmachine web server&amp;amp;lt;/address&amp;amp;gt;&amp;amp;lt;/body&amp;amp;gt;&amp;amp;lt;/html&amp;amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]#
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solution:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]# knife bootstrap &amp;lt;b&amp;gt;--node-name NODENAME&amp;lt;/b&amp;gt; --run-list &amp;#34;role[phpapp]&amp;#34; --json-attributes &amp;#34;{\&amp;#34;phpapp\&amp;#34;: {\&amp;#34;server_name\&amp;#34;: \&amp;#34;localhost.localdomain\&amp;#34;}}&amp;#34; --ssh-user root --ssh-password PASSWORD HOSTNAME&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">10.25.4.134 Chef Client finished, X/Y resources updated in x.xx seconds&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]#
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]# knife ec2 server list&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;span style=&amp;#34;color: red&amp;#34;&amp;gt;ERROR:&amp;lt;/span&amp;gt; Fog::Compute::AWS::Error: RequestExpired =&amp;gt; Request has expired. Timestamp date is 2015-04-13T09:54:47Z&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]#&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solution:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]# /etc/init.d/ntpd restart&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Starting ntpd: [ &amp;lt;span style=&amp;#34;color:green&amp;#34;&amp;gt;OK&amp;lt;/span&amp;gt; ]&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]# ntpq -p&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> remote refid st t when poll reach delay offset jitter&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">================================================================&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]# knife ec2 server list&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Instance ID Name Public IP Private IP Flavor Image SSH Key Security Groups IAM Profile State&amp;lt;br/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[root@localhost chef-repo]#
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Notes about IPTables</title><link>http://blog.ylitalot.com/post/iptables-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/iptables-notes/</guid><description>&lt;p>Random notes about iptables, ufw and such tools in Linux.&lt;/p>
+&lt;h2 id="mandatory-lines-for-nat-instance" >Mandatory lines for NAT instance
+&lt;span>
+&lt;a href="#mandatory-lines-for-nat-instance">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Your /etc/sysconfig/iptables should have following lines:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">-A POSTROUTING -s _PRIVATE_IP_RANGE_/16 -o eth0 -j MASQUERADE
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="logging-connections-that-use-forwarding" >Logging connections that use forwarding
+&lt;span>
+&lt;a href="#logging-connections-that-use-forwarding">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>If you are forwarding TCP connections from NAT instance to some instance that doesn&amp;rsquo;t have public IP, you can easily add logging into iptables. Log entries will appear in /var/log/messages.&lt;/p>
+&lt;p>Config in /etc/sysconfig/iptables:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">-A PREROUTING -m state --state NEW -d _IP_AT_NAT_/32 -p tcp -m tcp --dport 443 -j LOG --log-prefix &amp;#34; [&amp;gt;] New 443 Forward &amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-A PREROUTING -d _IP_AT_NAT_/32 -p tcp -m tcp --dport 443 -j DNAT --to-destination _IP_AT_DESTINATION_:443
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Lines in /var/log/messages:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>TIMESTAMP&lt;/em> &lt;em>HOSTNAME&lt;/em> kernel: [&amp;hellip;] [&amp;gt;] New 443 Forward IN=eth0 OUT= MAC=&lt;em>MAC_ADDRESS&lt;/em> SRC=&lt;em>PUBLIC_IP&lt;/em> DST=&lt;em>IP_AT_NAT&lt;/em> LEN=60 TOS=0x00 PREC=0x00 TTL=47 ID=8304 DF PROTO=TCP SPT=38660 DPT=443 WINDOW=29200 RES=0x00 SYN URGP=0&lt;/p>
+&lt;/blockquote></description></item><item><title>Notes about Puppet</title><link>http://blog.ylitalot.com/post/puppet-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/puppet-notes/</guid><description>&lt;p>Random notes about puppet configuration management tool and related topics.&lt;/p>
+&lt;h2 id="puppet-doesnt-like-symlinks" >Puppet doesn&amp;rsquo;t like symlinks
+&lt;span>
+&lt;a href="#puppet-doesnt-like-symlinks">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>When you start building &lt;em>/etc/puppet/environments/production&lt;/em> in your puppet master, don&amp;rsquo;t use symlinks on directory tree. I once made the mistake of using symlinks for manifests and modules directories and was getting frustrated, when puppet agent didn&amp;rsquo;t seem to get my &lt;em>manifests/site.pp&lt;/em> file.&lt;/p>
+&lt;p>Once I copied all the directly into &lt;em>/etc/puppet/environments/production&lt;/em> tree, things started to work.&lt;/p>
+&lt;h2 id="use-info-notice-or-debug-in-sitepp-to-describe-what-role-each-client-host-has" >Use &lt;code>info()&lt;/code>, &lt;code>notice()&lt;/code> or &lt;code>debug()&lt;/code> in site.pp to describe what role each client host has
+&lt;span>
+&lt;a href="#use-info-notice-or-debug-in-sitepp-to-describe-what-role-each-client-host-has">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Many users would like to see, which role was applied to which host.
+My approach for this challenge has been to put &lt;code>notice()&lt;/code>, &lt;code>info()&lt;/code> or &lt;code>debug()&lt;/code> in &lt;em>node&lt;/em> definitions to log this information into puppet masters log files (probably in &lt;em>/var/log/messages&lt;/em> or &lt;em>/var/log/syslog&lt;/em>).&lt;/p>
+&lt;h2 id="puppet-cert-commands-takes-awfully-long-time" >puppet cert commands takes awfully long time
+&lt;span>
+&lt;a href="#puppet-cert-commands-takes-awfully-long-time">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>&lt;code>puppet cert&lt;/code> commands do hostname resolving along the way and if your DNS configuration is incorrect, it will eventually fail. This problem might appear, if you have invalid information in &lt;em>/etc/resolv.conf&lt;/em>.&lt;/p>
+&lt;h2 id="potential-pitfalls-on-legacy-configs" >Potential pitfalls on legacy configs
+&lt;span>
+&lt;a href="#potential-pitfalls-on-legacy-configs">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>If you are given task to transform existing puppet configuration for a new hosting provider, check this things for potential problem:&lt;/p>
+&lt;ul>
+&lt;li>does it overwrite &lt;em>/etc/resolv.conf&lt;/em>?
+This will mess your DNS configuration and cause all kind of issues.&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>does it overwrite &lt;em>/etc/puppet/puppet.conf&lt;/em>?
+Puppet works beatifully on a first run, but ruins all future runs.&lt;/li>
+&lt;/ul></description></item><item><title>VirtualBox notes</title><link>http://blog.ylitalot.com/post/virtualboxes-notes/</link><pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate><guid>http://blog.ylitalot.com/post/virtualboxes-notes/</guid><description>&lt;p>Random notes about VirtualBox and related topics.&lt;/p>
+&lt;p>Problem:
+Virtual machines clock keeps on drifting so much that time difference between your VM and Amazon EC2 will go out of thresholds. Once you are beyond threshold limits, EC2 will refuse all commands that require authentication.&lt;/p>
+&lt;p>You can check this in host OS with:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># VBoxManage list vms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># for VM in ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># do
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># VBoxManage guestproperty get VM --timesync-set-threshold
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># done
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;b&amp;gt;No value set!&amp;lt;/b&amp;gt;&amp;lt;/tt&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solution:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># VBoxManage guestproperty set VM --timesync-set-threshold 60000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If you now recheck the value, it should respond with &lt;code>Value: 60000&lt;/code>&lt;/p></description></item></channel></rss>
