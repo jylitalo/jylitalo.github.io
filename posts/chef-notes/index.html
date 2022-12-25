@@ -1,6 +1,6 @@
-<!doctype html><html lang=en><head><title>Notes about Chef · (Dev)Ops observations</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Juha Ylitalo"><meta name=description content="Random notes about chef configuration management tool and related topics."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Notes about Chef"><meta name=twitter:description content="Random notes about chef configuration management tool and related topics."><meta property="og:title" content="Notes about Chef"><meta property="og:description" content="Random notes about chef configuration management tool and related topics."><meta property="og:type" content="article"><meta property="og:url" content="http://blog.ylitalot.com/posts/chef-notes/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2015-09-14T12:00:00+02:00"><meta property="article:modified_time" content="2015-09-14T12:00:00+02:00"><link rel=canonical href=http://blog.ylitalot.com/posts/chef-notes/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.216e36d3eaf6f4cdfd67dc1200c49a8169e6478102977b3e9ac51a064c57054c.css integrity="sha256-IW420+r29M39Z9wSAMSagWnmR4ECl3s+msUaBkxXBUw=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta name=generator content="Hugo 0.108.0"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>(Dev)Ops observations</a>
+<!doctype html><html lang=en><head><title>Notes about Chef · (Dev)Ops observations</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Juha Ylitalo"><meta name=description content="Random notes about chef configuration management tool and related topics."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Notes about Chef"><meta name=twitter:description content="Random notes about chef configuration management tool and related topics."><meta property="og:title" content="Notes about Chef"><meta property="og:description" content="Random notes about chef configuration management tool and related topics."><meta property="og:type" content="article"><meta property="og:url" content="http://ylitalot.com/posts/chef-notes/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2015-09-14T12:00:00+02:00"><meta property="article:modified_time" content="2015-09-14T12:00:00+02:00"><link rel=canonical href=http://ylitalot.com/posts/chef-notes/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.7f9d180e3b3bebba9ba80d55eed1255c35e00764872854736d6ad7db38884ffc.css integrity="sha256-f50YDjs767qbqA1V7tElXDXgB2SHKFRzbWrX2ziIT/w=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.216e36d3eaf6f4cdfd67dc1200c49a8169e6478102977b3e9ac51a064c57054c.css integrity="sha256-IW420+r29M39Z9wSAMSagWnmR4ECl3s+msUaBkxXBUw=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta name=generator content="Hugo 0.109.0"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>(Dev)Ops observations</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts>Blog</a></li><li class=navigation-item><a class=navigation-link href=/about>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://blog.ylitalot.com/posts/chef-notes/>Notes about Chef</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts>Blog</a></li><li class=navigation-item><a class=navigation-link href=/about>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://ylitalot.com/posts/chef-notes/>Notes about Chef</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
 <time datetime=2015-09-14T12:00:00+02:00>September 14, 2015</time></span>
 <span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
 One-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
@@ -8,51 +8,29 @@ One-minute read</span></div><div class=categories><i class="fa fa-folder" aria-h
 <span class=separator>•</span>
 <a href=/categories/chef/>chef</a>
 <span class=separator>•</span>
-<a href=/categories/ruby/>ruby</a></div></div></header><div><p>Random notes about chef configuration management tool and related topics.</p><p>Problem with <code>knife bootstrap</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@localhost chef-repo]# knife bootstrap --run-list &#34;role[phpapp]&#34; --json-attributes &#34;{\&#34;phpapp\&#34;: {\&#34;server_name\&#34;: \&#34;localhost.localdomain\&#34;}}&#34; --ssh-user root --ssh-password PASSWORD HOSTNAME&lt;br/&gt;
-</span></span><span class=line><span class=cl>Node&amp;nbsp;&amp;nbsp;exists, overwrite it? (Y/N) y&lt;br/&gt;
-</span></span><span class=line><span class=cl>&lt;span style=&#34;color: red&#34;&gt;ERROR:&lt;/span&gt; Method Not Allowed&lt;br/&gt;
-</span></span><span class=line><span class=cl>Response: &amp;lt;html&amp;gt;&amp;lt;head&gt;&amp;lt;title&amp;gt;405 Method Not Allowed&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;Method Not Allowed&amp;lt;/h1&amp;gt;Method Not Allowed&amp;lt;p&amp;gt;&amp;lt;hr&amp;gt;&amp;lt;address&amp;gt;mochiweb+webmachine web server&amp;lt;/address&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
-</span></span><span class=line><span class=cl>[root@localhost chef-repo]#
-</span></span></code></pre></td></tr></table></div></div><p>Solution:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@localhost chef-repo]# knife bootstrap &lt;b&gt;--node-name NODENAME&lt;/b&gt; --run-list &#34;role[phpapp]&#34; --json-attributes &#34;{\&#34;phpapp\&#34;: {\&#34;server_name\&#34;: \&#34;localhost.localdomain\&#34;}}&#34; --ssh-user root --ssh-password PASSWORD HOSTNAME&lt;br/&gt;
-</span></span><span class=line><span class=cl>...&lt;br/&gt;
-</span></span><span class=line><span class=cl>10.25.4.134 Chef Client finished, X/Y resources updated in x.xx seconds&lt;br/&gt;
-</span></span><span class=line><span class=cl>[root@localhost chef-repo]#
-</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@localhost chef-repo]# knife ec2 server list&lt;br/&gt;
-</span></span><span class=line><span class=cl>&lt;span style=&#34;color: red&#34;&gt;ERROR:&lt;/span&gt; Fog::Compute::AWS::Error: RequestExpired =&gt; Request has expired. Timestamp date is 2015-04-13T09:54:47Z&lt;br/&gt;
-</span></span><span class=line><span class=cl>[root@localhost chef-repo]#&lt;br/&gt;
-</span></span></code></pre></td></tr></table></div></div><p>Solution:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@localhost chef-repo]# /etc/init.d/ntpd restart&lt;br/&gt;
-</span></span><span class=line><span class=cl>...&lt;br/&gt;
-</span></span><span class=line><span class=cl>Starting ntpd:                                             [  &lt;span style=&#34;color:green&#34;&gt;OK&lt;/span&gt;  ]&lt;br/&gt;
-</span></span><span class=line><span class=cl>[root@localhost chef-repo]# ntpq -p&lt;br/&gt;
-</span></span><span class=line><span class=cl>     remote           refid      st t when poll reach   delay   offset  jitter&lt;br/&gt;
-</span></span><span class=line><span class=cl>================================================================&lt;br/&gt;
-</span></span><span class=line><span class=cl>...&lt;br/&gt;
-</span></span><span class=line><span class=cl>[root@localhost chef-repo]# knife ec2 server list&lt;br/&gt;
-</span></span><span class=line><span class=cl>Instance ID  Name  Public IP  Private IP  Flavor  Image  SSH Key  Security Groups  IAM Profile  State&lt;br/&gt;
-</span></span><span class=line><span class=cl>[root@localhost chef-repo]#
-</span></span></code></pre></td></tr></table></div></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+<a href=/categories/ruby/>ruby</a></div></div></header><div><p>Random notes about chef configuration management tool and related topics.</p><p>Problem with <code>knife bootstrap</code>:</p><pre tabindex=0><code>[root@localhost chef-repo]# knife bootstrap --run-list &#34;role[phpapp]&#34; --json-attributes &#34;{\&#34;phpapp\&#34;: {\&#34;server_name\&#34;: \&#34;localhost.localdomain\&#34;}}&#34; --ssh-user root --ssh-password PASSWORD HOSTNAME&lt;br/&gt;
+Node&amp;nbsp;&amp;nbsp;exists, overwrite it? (Y/N) y&lt;br/&gt;
+&lt;span style=&#34;color: red&#34;&gt;ERROR:&lt;/span&gt; Method Not Allowed&lt;br/&gt;
+Response: &amp;lt;html&amp;gt;&amp;lt;head&gt;&amp;lt;title&amp;gt;405 Method Not Allowed&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;Method Not Allowed&amp;lt;/h1&amp;gt;Method Not Allowed&amp;lt;p&amp;gt;&amp;lt;hr&amp;gt;&amp;lt;address&amp;gt;mochiweb+webmachine web server&amp;lt;/address&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+[root@localhost chef-repo]#
+</code></pre><p>Solution:</p><pre tabindex=0><code>[root@localhost chef-repo]# knife bootstrap &lt;b&gt;--node-name NODENAME&lt;/b&gt; --run-list &#34;role[phpapp]&#34; --json-attributes &#34;{\&#34;phpapp\&#34;: {\&#34;server_name\&#34;: \&#34;localhost.localdomain\&#34;}}&#34; --ssh-user root --ssh-password PASSWORD HOSTNAME&lt;br/&gt;
+...&lt;br/&gt;
+10.25.4.134 Chef Client finished, X/Y resources updated in x.xx seconds&lt;br/&gt;
+[root@localhost chef-repo]#
+</code></pre><pre tabindex=0><code>[root@localhost chef-repo]# knife ec2 server list&lt;br/&gt;
+&lt;span style=&#34;color: red&#34;&gt;ERROR:&lt;/span&gt; Fog::Compute::AWS::Error: RequestExpired =&gt; Request has expired. Timestamp date is 2015-04-13T09:54:47Z&lt;br/&gt;
+[root@localhost chef-repo]#&lt;br/&gt;
+</code></pre><p>Solution:</p><pre tabindex=0><code>[root@localhost chef-repo]# /etc/init.d/ntpd restart&lt;br/&gt;
+...&lt;br/&gt;
+Starting ntpd:                                             [  &lt;span style=&#34;color:green&#34;&gt;OK&lt;/span&gt;  ]&lt;br/&gt;
+[root@localhost chef-repo]# ntpq -p&lt;br/&gt;
+     remote           refid      st t when poll reach   delay   offset  jitter&lt;br/&gt;
+================================================================&lt;br/&gt;
+...&lt;br/&gt;
+[root@localhost chef-repo]# knife ec2 server list&lt;br/&gt;
+Instance ID  Name  Public IP  Private IP  Flavor  Image  SSH Key  Security Groups  IAM Profile  State&lt;br/&gt;
+[root@localhost chef-repo]#
+</code></pre></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2015 -
 2022
 Juha Ylitalo
