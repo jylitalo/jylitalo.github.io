@@ -7,7 +7,7 @@ My Assets on Octopress script needed couple modifications and I felt that it was
 
 In following example, I have method called `_extract_from_markdown`, which gets one line of text from markdown file as string. It will try to find all possible references to files under /assets/ or /images/ and return those as list of strings. Comment lines that starts with '>>>' are method calls and lines below them (starting with [) are expected return values from method.
 
-```
+```python
 def _extract_from_markdown(line):
   """                                                                                                                        
   >>> AssetsFinder._extract_from_markdown("foobar")
@@ -36,7 +36,7 @@ def _extract_from_markdown(line):
 
 As slight more advanced tests, find_source_dir method will throw AssertionException, if it is unable to guess root directory in your Octoress directory tree. First two tests are successful cases, while the third one (about /bound/to/fail directory) will throw exception.
 
-```
+```python
 def find_source_dir(dir=os.getcwd()):
   """                                                                                                                        
   >>> Octopress.find_source_dir("/tmp/octo/source/_posts")                                                                   

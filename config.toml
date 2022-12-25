@@ -1,4 +1,4 @@
-baseURL = "http://blog.ylitalot.com/"
+baseURL = "http://ylitalot.com/"
 title = "(Dev)Ops observations"
 copyright = "Juha Ylitalo &lt;juha@ylitalot.net&gt;"
 
@@ -7,10 +7,6 @@ languageCode = "en"
 
 theme = "hugo-coder"
 paginate = 10
-PygmentsCodeFences = true
-PygmentsUseClasses = true
-PygmentsCodefencesGuessSyntax = true
-PygmentsOptions = "linenos=table"
 
 [menus]
   main = [
