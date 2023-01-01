@@ -80,7 +80,7 @@ chef-client -z -c /etc/chef/client.rb -o my_cookbook
 <a class=heading-link href=#comparison><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h2><p>In Git based solution, prerequirements are git and chef-client. You have complete audit trail, because all content is pushed through the git repository, but you have to maintain deployment keys (or put one valid deployment keypair into chef configuration, if you want to do autoscaling).</p><p>In S3 based solution, prerequirements are awscli (that supposed &ndash;no-sign-request) and chef-client. You don&rsquo;t have to worry about deployment keys and you can use Berksfile to maintain all your 3rd party cookbooks, but you have to create new cookbook.tar.gz whenever you make changes to your chef configuration and there is no direct linking between your cookbook.tar.gz files and content in git repository.</p><p>Both scenarios work very well, if the goal is to ensure that all your nodes have necessary user accounts, properly configured sudoers and monitoring tools like nagios plugins or zabbix-agent.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2015 -
-2022
+2023
 Juha Ylitalo
 ·
 Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.27afce394fb6284f521b3fbc9f6a8326342333c3092267f3944d770489876fed.js integrity="sha256-J6/OOU+2KE9SGz+8n2qDJjQjM8MJImfzlE13BImHb+0="></script></body></html>
