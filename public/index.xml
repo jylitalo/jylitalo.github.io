@@ -1,130 +1,103 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>(Dev)Ops observations</title>
-    <link>http://blog.ylitalot.com/</link>
-    <description>Recent content on (Dev)Ops observations</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright>
-    <lastBuildDate>Sun, 21 Feb 2021 12:00:00 +0200</lastBuildDate>
-    
-        <atom:link href="http://blog.ylitalot.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Linters</title>
-      <link>http://blog.ylitalot.com/post/linters/</link>
-      <pubDate>Sun, 21 Feb 2021 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/linters/</guid>
-      
-        <description>&lt;p&gt;Linter is any tool that detects and flags errors in programming languages, including stylistic errors. - &lt;a href=&#34;https://en.wikipedia.org/wiki/Lint_(software)&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Github Pages</title>
-      <link>http://blog.ylitalot.com/post/github-pages/</link>
-      <pubDate>Sat, 05 Jan 2019 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/github-pages/</guid>
-      
-        <description>Current solution is based on Hugo and its instructions for Hosting on Github with GitHub Actions.</description>
-      
-    </item>
-    
-    <item>
-      <title>Notes about Ansible</title>
-      <link>http://blog.ylitalot.com/post/ansible-notes/</link>
-      <pubDate>Wed, 06 Dec 2017 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/ansible-notes/</guid>
-      
-        <description>&lt;p&gt;My favorite Ansible tools and personal contributions towards Ansible.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Notes about SSH</title>
-      <link>http://blog.ylitalot.com/post/ssh-notes/</link>
-      <pubDate>Tue, 05 Dec 2017 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/ssh-notes/</guid>
-      
-        <description>&lt;p&gt;Random notes about ssh config and related topics.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Chef without Chef server</title>
-      <link>http://blog.ylitalot.com/post/chef-without-server/</link>
-      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/chef-without-server/</guid>
-      
-        <description>&lt;p&gt;There are couple alternatives available if you wish to use Chef in your infrastructure, but don&amp;rsquo;t have budget to setup hosted Chef service. So far I&amp;rsquo;ve seen one based on Git and another based on AWS S3.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Doctest in Python</title>
-      <link>http://blog.ylitalot.com/post/python-doctest/</link>
-      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/python-doctest/</guid>
-      
-        <description>My Assets on Octopress script needed couple modifications and I felt that it was good platform for doing unit tests. Python has nice test framework called doctest, which allows you to insert unit test cases as comments in your python code. My current tests are done for methods that don&amp;rsquo;t recover mockups (for things like file system access) and simply return strings, lists and such to caller.
-In following example, I have method called _extract_from_markdown, which gets one line of text from markdown file as string.</description>
-      
-    </item>
-    
-    <item>
-      <title>Notes about Chef</title>
-      <link>http://blog.ylitalot.com/post/chef-notes/</link>
-      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/chef-notes/</guid>
-      
-        <description>&lt;p&gt;Random notes about chef configuration management tool and related topics.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Notes about IPTables</title>
-      <link>http://blog.ylitalot.com/post/iptables-notes/</link>
-      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/iptables-notes/</guid>
-      
-        <description>&lt;p&gt;Random notes about iptables, ufw and such tools in Linux.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Notes about Puppet</title>
-      <link>http://blog.ylitalot.com/post/puppet-notes/</link>
-      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/puppet-notes/</guid>
-      
-        <description>Random notes about puppet configuration management tool and related topics.
-Puppet doesn&amp;rsquo;t like symlinks When you start building /etc/puppet/environments/production in your puppet master, don&amp;rsquo;t use symlinks on directory tree. I once made the mistake of using symlinks for manifests and modules directories and was getting frustrated, when puppet agent didn&amp;rsquo;t seem to get my manifests/site.pp file.
-Once I copied all the directly into /etc/puppet/environments/production tree, things started to work.
-Use info(), notice() or debug() in site.</description>
-      
-    </item>
-    
-    <item>
-      <title>VirtualBox notes</title>
-      <link>http://blog.ylitalot.com/post/virtualboxes-notes/</link>
-      <pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
-      
-      <guid>http://blog.ylitalot.com/post/virtualboxes-notes/</guid>
-      
-        <description>&lt;p&gt;Random notes about VirtualBox and related topics.&lt;/p&gt;</description>
-      
-    </item>
-    
-  </channel>
+	<channel>
+		<title>(Dev)Ops observations</title>
+		<link>http://localhost:1313/</link>
+		<description>Recent content on (Dev)Ops observations</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+			<copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright>
+		
+		
+			<lastBuildDate>Sat, 10 Aug 2024 12:00:00 +0200</lastBuildDate>
+		
+			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Using AWS Control Tower with terraform</title>
+				<link>http://localhost:1313/posts/ct-terraform/</link>
+				<pubDate>Sat, 10 Aug 2024 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/ct-terraform/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;: This post is based on one customer project with pre-existing AWS Control Tower.&lt;/p&gt;&#xA;&lt;p&gt;AWS created Control Tower as a way to allow organization to manage their AWS Organization, accounts and their setup. Control Tower has nice UI in AWS console,&#xA;but if you try to terraform anything you will quickly get confused, because terraform (with AWS provider 5.62.0) has ONLY TWO &lt;code&gt;aws_control_tower_*&lt;/code&gt; resources.&#xA;Situation with awscli (version 2.17.5) isn&amp;rsquo;t much better.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Juha Ylitalo</title>
+				<link>http://localhost:1313/about/</link>
+				<pubDate>Sun, 11 Dec 2022 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/about/</guid>
+				<description>&lt;h2 id=&#34;who&#34;&gt;&#xA;  Who?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#who&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Started work career around 1995 as software designer, jumped into system administration and did few years in testing/test automation. Since 2015, my work life has been around platform engineering in public cloud (mainly AWS).&lt;/p&gt;&#xA;&lt;p&gt;While not working, I&amp;rsquo;ve done running (trail races from 12km to 83km), taijiquan and playing ukulele.&lt;/p&gt;&#xA;&lt;h2 id=&#34;certifications&#34;&gt;&#xA;  Certifications&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#certifications&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;AWS Solution Architect Associate 2015-2019 (expired during covid)&lt;/li&gt;&#xA;&lt;li&gt;AWS Sysop Administration Associate 2016-2021 (expired during covid)&lt;/li&gt;&#xA;&lt;li&gt;AWS DevOps Engineer Professional 2022-&amp;gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;working&#34;&gt;&#xA;  Working&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#working&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;DevOps Specialist in &lt;a href=&#34;https://reaktor.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reaktor&lt;/a&gt; since 2016.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Linters</title>
+				<link>http://localhost:1313/posts/linters/</link>
+				<pubDate>Sun, 11 Dec 2022 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/linters/</guid>
+				<description>&lt;p&gt;Linter is any tool that detects and flags errors in programming languages, including stylistic errors. - &lt;a href=&#34;https://en.wikipedia.org/wiki/Lint_%28software%29&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Github Pages</title>
+				<link>http://localhost:1313/posts/github-pages/</link>
+				<pubDate>Sat, 05 Jan 2019 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/github-pages/</guid>
+				<description>&lt;p&gt;Current solution is based on &lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo&lt;/a&gt; and its instructions for &lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hosting on Github&lt;/a&gt; with GitHub Actions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Notes about Ansible</title>
+				<link>http://localhost:1313/posts/ansible-notes/</link>
+				<pubDate>Wed, 06 Dec 2017 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/ansible-notes/</guid>
+				<description>&lt;p&gt;My favorite Ansible tools and personal contributions towards Ansible.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Notes about SSH</title>
+				<link>http://localhost:1313/posts/ssh-notes/</link>
+				<pubDate>Tue, 05 Dec 2017 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/ssh-notes/</guid>
+				<description>&lt;p&gt;Random notes about ssh config and related topics.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Chef without Chef server</title>
+				<link>http://localhost:1313/posts/chef-without-server/</link>
+				<pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/chef-without-server/</guid>
+				<description>&lt;p&gt;There are couple alternatives available if you wish to use Chef in your infrastructure, but don&amp;rsquo;t have budget to setup hosted Chef service. So far I&amp;rsquo;ve seen one based on Git and another based on AWS S3.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Doctest in Python</title>
+				<link>http://localhost:1313/posts/python-doctest/</link>
+				<pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/python-doctest/</guid>
+				<description>&lt;p&gt;My Assets on Octopress script needed couple modifications and I felt that it was good platform for doing unit tests. Python has nice test framework called &lt;a href=&#34;http://docs.python.org/3/library/doctest.html&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;doctest&lt;/a&gt;, which allows you to insert unit test cases as comments in your python code. My current tests are done for methods that don&amp;rsquo;t recover mockups (for things like file system access) and simply return strings, lists and such to caller.&lt;/p&gt;&#xA;&lt;p&gt;In following example, I have method called &lt;code&gt;_extract_from_markdown&lt;/code&gt;, which gets one line of text from markdown file as string. It will try to find all possible references to files under /assets/ or /images/ and return those as list of strings. Comment lines that starts with &amp;lsquo;&amp;raquo;&amp;gt;&amp;rsquo; are method calls and lines below them (starting with [) are expected return values from method.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Notes about Chef</title>
+				<link>http://localhost:1313/posts/chef-notes/</link>
+				<pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/chef-notes/</guid>
+				<description>&lt;p&gt;Random notes about chef configuration management tool and related topics.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Notes about IPTables</title>
+				<link>http://localhost:1313/posts/iptables-notes/</link>
+				<pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/iptables-notes/</guid>
+				<description>&lt;p&gt;Random notes about iptables, ufw and such tools in Linux.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Notes about Puppet</title>
+				<link>http://localhost:1313/posts/puppet-notes/</link>
+				<pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/puppet-notes/</guid>
+				<description>&lt;p&gt;Random notes about puppet configuration management tool and related topics.&lt;/p&gt;&#xA;&lt;h2 id=&#34;puppet-doesnt-like-symlinks&#34;&gt;&#xA;  Puppet doesn&amp;rsquo;t like symlinks&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#puppet-doesnt-like-symlinks&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;When you start building &lt;em&gt;/etc/puppet/environments/production&lt;/em&gt; in your puppet master, don&amp;rsquo;t use symlinks on directory tree. I once made the mistake of using symlinks for manifests and modules directories and was getting frustrated, when puppet agent didn&amp;rsquo;t seem to get my &lt;em&gt;manifests/site.pp&lt;/em&gt; file.&lt;/p&gt;&#xA;&lt;p&gt;Once I copied all the directly into &lt;em&gt;/etc/puppet/environments/production&lt;/em&gt; tree, things started to work.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>VirtualBox notes</title>
+				<link>http://localhost:1313/posts/virtualboxes-notes/</link>
+				<pubDate>Mon, 14 Sep 2015 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/virtualboxes-notes/</guid>
+				<description>&lt;p&gt;Random notes about VirtualBox and related topics.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

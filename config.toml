@@ -3,7 +3,7 @@ title = "(Dev)Ops observations"
 copyright = "Juha Ylitalo &lt;juha@ylitalot.net&gt;"
 
 hasCJKLanguage = false
-languageCode = "en"
+locale = "en"
 
 theme = "hugo-coder"
 paginate = 10
@@ -41,11 +41,13 @@ paginate = 10
   description = "Observations from working in cloud environments"
   keywords = "blog,developer,personal"
   avatarURL = "/images/avatar.jpg"
-  gravatar = "juha.ylitalo@gmail.com"
   since = "2015"
   email = "juha@ylitalot.net"
   mainSections = ["posts"]
   colorScheme = "auto"
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [languages.en]
-languageName = ":uk:"
+label = ":uk:"
