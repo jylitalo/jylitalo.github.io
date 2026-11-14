@@ -1,0 +1,14 @@
+version: 2
+
+updates:
+  # GitHub Actions used to build and deploy the blog
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+    groups:
+      github-actions:
+        patterns:
+          - "*"
