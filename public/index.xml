@@ -12,9 +12,16 @@
 			<copyright>Juha Ylitalo &amp;lt;juha@ylitalot.net&amp;gt;</copyright>
 		
 		
-			<lastBuildDate>Sat, 10 Aug 2024 12:00:00 +0200</lastBuildDate>
+			<lastBuildDate>Mon, 09 Nov 2026 12:00:00 +0200</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Introducing My Homelab</title>
+				<link>http://localhost:1313/posts/homelab/</link>
+				<pubDate>Mon, 09 Nov 2026 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/homelab/</guid>
+				<description>&lt;p&gt;Overview of my homelab.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Using AWS Control Tower with terraform</title>
 				<link>http://localhost:1313/posts/ct-terraform/</link>
