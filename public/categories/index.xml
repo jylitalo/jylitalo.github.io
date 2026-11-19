@@ -51,6 +51,13 @@
 				<description></description>
 			</item>
 			<item>
+				<title>Secret</title>
+				<link>http://localhost:1313/categories/secret/</link>
+				<pubDate>Mon, 09 Nov 2026 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/categories/secret/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Aws</title>
 				<link>http://localhost:1313/categories/aws/</link>
 				<pubDate>Sat, 10 Aug 2024 12:00:00 +0200</pubDate>

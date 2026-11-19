@@ -23,6 +23,13 @@
 				<description>&lt;p&gt;Overview of my homelab.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>SOPS for Secrets in GitOps</title>
+				<link>http://localhost:1313/posts/sops-age/</link>
+				<pubDate>Mon, 09 Nov 2026 12:00:00 +0200</pubDate>
+				<guid>http://localhost:1313/posts/sops-age/</guid>
+				<description>&lt;p&gt;Secrets are something that you can&amp;rsquo;t avoid when you deploy services into your kubernetes cluster.&#xA;You could easily add them with &lt;code&gt;kubectl apply ...&lt;/code&gt; to your kubernetes, but you don&amp;rsquo;t want to commit&#xA;secrets into git repositories, which is a problem if you want to use GitOps.&lt;/p&gt;&#xA;&lt;p&gt;Kubernetes has number of options that you can use to keep your secrets sealed secrets, external secrets, &amp;hellip;&#xA;but SOPS with age is probably the easiest one to encrypt them in your homelab&amp;rsquo;s gitops repository (at least if you use fluxcd).&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Using AWS Control Tower with terraform</title>
 				<link>http://localhost:1313/posts/ct-terraform/</link>
 				<pubDate>Sat, 10 Aug 2024 12:00:00 +0200</pubDate>
